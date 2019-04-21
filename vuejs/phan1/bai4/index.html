@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <p>{{diem}}</p>
+        <div>
+            <button @click="changeLink">Click to Change link</button>
+            <a v-bind:href="linkVal">Link</a>
+        </div>
+    </div>
+    <script type="text/javascript">
+        var app = new Vue({
+            el: '#app',
+            data: {
+                diem: 'bạn A có môn toán 7 điểm',
+                linkVal: 'https://toidicodedao.com/2019/02/14/nhung-thu-minh-da-hoc-trong-nam-2018/#more-6649'
+            },
+            watch: {
+                diem: function(newValue) {
+                    console.log("Điểm của bạn ấy được một giáo viên nào đó nhập");
+                }
+            },
+            methods: {
+                changeLink: function() {
+                    this.linkVal = 'https://www.youtube.com/watch?v=3XEWZ_t5Fc0&t=1124s';
+                }
+            },
+
+        });
+
+        app.diem = "Bạn A có điểm môn toán 8 điểm";
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <!-- <input type="text" v-on:input="changeValue">
+    {{ message }} -->
+    <p v-once> {{ message }} - {{ showPost() }} </p>
+    <p> {{ sayHello() }} </p>
+    <a v-bind:href="link">Tôi đi code dạo</a>
+    <p v-html="testHTML"> </p>
+  </div>
+  <script type="text/javascript">
+   var app = new Vue({
+    el: '#app',
+    data: {
+      message  : 'Hello Vue!',
+      link     :  'https://toidicodedao.com/2019/02/14/nhung-thu-minh-da-hoc-trong-nam-2018/#more-6649',
+      testHTML :  '<a href="https://toidicodedao.com">Tôi đi code </a>'
+    },
+    methods: {
+        // changeValue : function(event) {
+        //     this.message = event.target.value;
+        // },
+        sayHello    : function () {
+           return this.message;
+        },
+        showPost    : function () {
+            this.message = "Xin chào vuejs";
+            return this.message;
+        } 
+    }
+  })
+</script>
+</body>
+</html>

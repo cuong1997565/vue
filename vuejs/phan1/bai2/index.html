@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <h1> Bấm nút để tăng giá trị </h1>
+    <button v-on:click="tangGiaTri">Tăng giá trị</button>
+    <span v-on:mouseover="dungChuot"> Dừng sự kiện </span>
+    <p> Giá trị : {{ dem }} </p>
+    <p> Giá trị : {{ dem > 20 ? 'Bạn sẽ vượt quá mức giới hạn' : 'Bạn vẫn nằm trong giới hạn' }} </p>
+
+    <p v-on:mousemove="tinhToaDo">Tọa độ của chuột : {{x}} / {{y}} </p>
+    <div>
+      <input type="text" v-on:keyup.enter.space="banPhim">
+    </div>
+    <div>
+        <input type="text" v-model="message">
+        <p>Tên của bạn là: {{ message }}</p>
+      </div>
+  </div>
+  <script type="text/javascript">
+   var app = new Vue({
+    el: '#app',
+    data: {
+      dem: 0,
+      x  : 0,
+      y  : 0,
+      message : ''
+    },
+    methods: {
+        tangGiaTri: function() {
+          this.dem ++ ;
+        },
+        tinhToaDo: function(event) {
+          this.x = event.clientX;
+          this.y = event.clientY;
+        },
+        dungChuot: function(event) {
+           event.stopPropagation();
+        },
+        banPhim: function() {
+          alert("hello baby");
+        }
+    }
+  })
+</script>
+</body>
+</html>

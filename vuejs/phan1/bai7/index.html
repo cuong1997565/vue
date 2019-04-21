@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BT1</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+    <style>
+
+    </style>
+</head>
+<body>
+<div id="app">
+    <p> You're doctor </p>
+    <p v-if="xacdinh">Yes, I am <span> a doctor </span></p>
+    <p v-else>No, I am a teacher </p>
+    <button @click="xacdinh = !xacdinh" >Change connection</button>
+    <template v-show="xacdinh">
+        <div> Menu 1 </div>
+        <div> Menu 1 </div>
+        <div> Menu 1 </div>
+    </template>
+    <p v-show="xacdinh">Test show element</p>  
+    <ul>
+        <li v-for="(menu , i) in menus" ::key="menu"> {{ menu }} - voi index la {{i}} </li>
+    </ul>
+    <button @click="menus.push('test')">Add new item</button>
+
+    <!-- <ul v-for="student in students ">
+            <li v-for="(value,key, index ) in student"> key : {{ key  }} - {{ value }} - ({{ index }}) </li>
+    </ul>
+
+    <ul>
+        <li v-for="n in 10"> {{n}} </li>
+    </ul> -->
+   
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            xacdinh: true,
+            menus: ['Home','About','Blog','Contact','FAQ'],
+            students : [
+                {name : 'Sky', age: 30, class: 'CNTT'},
+                {name : 'Albert', age: 32, class: 'QTKQ'},
+                {name : 'John', age: 10, class: 'CDT'}
+            ]
+        }
+
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BT1</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
+    <style>
+        .vuong {
+            width: 100px;
+            height: 100px;
+            background-color: gray;
+            display: inline-block;
+            margin: 10px;
+        }
+
+        .do {
+            background-color: red;
+        }
+
+        .xanhduong {
+            background-color: blue;
+        }
+
+        .xanhcay {
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+<div id="app">
+    <div class="vuong" @click="quanLyDo = !quanLyDo" :class="{do :quanLyDo }"></div>
+
+    <div class="vuong" :class="color"></div>
+    <br>
+    <input type="text" v-model="color">
+   
+</div>
+
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            quanLyDo: false,
+            color: 'xanhcay'
+        },
+        computed: {
+           divClass : function() {
+              return {
+                 do: this.quanLyDo,
+                 xanhduong: !this.quanLyDo
+              }
+           }
+        },
+
+    });
+</script>
+</body>
+</html>﻿
